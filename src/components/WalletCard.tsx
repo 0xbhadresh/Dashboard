@@ -1,34 +1,28 @@
 import { Button } from "./ui/Button";
 
 interface WalletCardProps {
-  name: string;
-  username: string;
-  balance: number;
-  recentChange: number;
+  agent: {
+    name: string;
+    username: string;
+    balance: number;
+    recentChange: number; // Ensure this is part of WalletCardProps
+  };
 }
 
-export function WalletCard({
-  name,
-  username,
-  balance,
-  recentChange,
-}: WalletCardProps) {
+export function WalletCard({ agent }: WalletCardProps) {
   return (
     <div className="bg-[#2f2f2f] rounded-lg p-6 flex justify-between items-center">
       <div className="flex items-center">
         <div className="w-16 h-16 bg-gray-600 rounded-lg mr-4"></div>
         <div>
           <div className="flex items-center">
-            <h2 className="text-xl font-bold mr-2">{name}</h2>
-            <span className="text-gray-400 text-sm">{username}</span>
+            <h2 className="text-xl font-bold mr-2">{agent.name}</h2>
+            <span className="text-gray-400 text-sm">0x942c</span>
           </div>
           <div className="text-3xl font-bold text-white">
-            $ {balance}
+            ${agent.balance.toFixed(2)}
           </div>
-          <div className="text-green-500">
-            + {recentChange}(
-            {((recentChange / balance) * 100).toFixed(2)}%)
-          </div>
+          <div className="text-green-500">+ {agent.recentChange} (338)</div>
         </div>
       </div>
       <div className="flex space-x-4">

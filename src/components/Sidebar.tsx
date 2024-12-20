@@ -3,7 +3,7 @@ import { Home, Compass, FileText, Settings, LogOut } from "lucide-react";
 import { useState } from "react";
 import CustomButton from "./CustomButton";
 import { useDisconnect } from "wagmi";
-
+import Link from "next/link";
 
 export function Sidebar() {
   const [isConnected, setIsConnected] = useState(false);
@@ -39,52 +39,52 @@ export function Sidebar() {
       <nav className="flex-grow flex flex-col justify-between">
         <ul className="space-y-2">
           <li>
-            <a
+            <Link
               href="/"
               className="flex items-center p-2 bg-green-700 rounded-md text-white"
             >
               <Home className="mr-2" />
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="/discover"
               className="flex items-center p-2 text-white hover:bg-green-700 rounded-md"
             >
               <Compass className="mr-2" />
               Discover
-            </a>
+            </Link>
           </li>
         </ul>
         <ul className="space-y-2">
           {/* <li>
-            <a
+            <Link
               href="#"
               className="flex items-center p-2 text-white hover:bg-green-700 rounded-md"
             >
               <FileText className="mr-2" />
               Docs
-            </a>
+            </Link>
           </li> */}
           <li>
-            <a
+            <Link
               href="#"
               className="flex items-center p-2 text-white hover:bg-green-700 rounded-md"
             >
               <Settings className="mr-2" />
               Settings
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="#"
               className="flex items-center p-2 text-white hover:bg-green-700 rounded-md"
               onClick={() => disconnect()}
             >
               <LogOut className="mr-2" />
               Logout
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
